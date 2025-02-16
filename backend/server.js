@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
-      "https://quick-polling-app-psf2.vercel.app/",
+      "https://quick-polling-app-psf2.vercel.app",
       "http://localhost:5173",
       process?.env?.CLIENT_URL ?? "",
     ],
