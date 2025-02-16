@@ -21,9 +21,32 @@ A full-stack polling application where users can create polls, vote on them, and
 - **Frontend**: React.js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
-- **Deployment**: Vercel (frontend), Render/Heroku (backend), MongoDB Atlas (database)
+- **Deployment**: Vercel (frontend / backend), MongoDB Atlas (database)
 
 ---
+
+## Installation
+Follow these steps to set up the project locally.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/quick-polling-app.git
+cd quick-polling-app
+```
+
+### 2. Set Up the Backend
+ - Navigate to the backend folder: `cd backend`
+ - Install dependencies: `npm install`
+ - Create a .env file and add your MongoDB connection string:
+   ```
+   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/polling-app?retryWrites=true&w=majority
+   ```
+ - Start the backend server: `node server.js`
+
+### 3. Set Up the Frontend
+  - Navigate to the frontend folder: `cd ../frontend`
+  - install dependencies: `npm install`
+  - Start the development server: `npm run dev`
 
 ## API Endpoints
 ### Polls
