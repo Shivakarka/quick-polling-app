@@ -9,7 +9,9 @@ const AllPolls = () => {
   // Fetch all polls
   useEffect(() => {
     const fetchPolls = async () => {
-      const response = await axios.get("http://localhost:5000/api/polls");
+      const response = await axios.get(
+        "https://quick-polling-app-tawny.vercel.app/api/polls"
+      );
       setPolls(response.data);
     };
     fetchPolls();
@@ -18,9 +20,11 @@ const AllPolls = () => {
   // Refresh poll results every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      axios.get("http://localhost:5000/api/polls").then((res) => {
-        setPolls(res.data);
-      });
+      axios
+        .get("https://quick-polling-app-tawny.vercel.app/api/polls")
+        .then((res) => {
+          setPolls(res.data);
+        });
     }, 5000);
     return () => clearInterval(interval);
   }, []);

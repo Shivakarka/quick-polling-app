@@ -21,7 +21,7 @@ const PollPage = () => {
   useEffect(() => {
     const fetchPoll = async () => {
       const response = await axios.get(
-        `http://localhost:5000/api/polls/${pollId}`
+        `https://quick-polling-app-tawny.vercel.app/api/polls/${pollId}`
       );
       setPoll(response.data);
     };
@@ -36,9 +36,12 @@ const PollPage = () => {
     if (selectedOption === null || hasVoted) return;
 
     try {
-      await axios.post(`http://localhost:5000/api/polls/${pollId}/vote`, {
-        optionIndex: selectedOption,
-      });
+      await axios.post(
+        `https://quick-polling-app-tawny.vercel.app/api/polls/${pollId}/vote`,
+        {
+          optionIndex: selectedOption,
+        }
+      );
 
       // Update local storage to mark this poll as voted
       const votedPolls = JSON.parse(localStorage.getItem("votedPolls") || "[]");

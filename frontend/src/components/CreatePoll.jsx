@@ -12,10 +12,13 @@ const CreatePoll = () => {
     const optionsArray = options
       .split(",")
       .map((opt) => ({ text: opt.trim(), votes: 0 }));
-    const response = await axios.post("http://localhost:5000/api/polls", {
-      question,
-      options: optionsArray,
-    });
+    const response = await axios.post(
+      "https://quick-polling-app-tawny.vercel.app/api/polls",
+      {
+        question,
+        options: optionsArray,
+      }
+    );
     // Redirect to the poll page
     navigate(`/poll/${response.data._id}`);
   };
