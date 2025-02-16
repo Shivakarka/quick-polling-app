@@ -8,7 +8,28 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://quick-polling-app-psf2.vercel.app/",
+      "http://localhost:5173",
+      process?.env?.CLIENT_URL ?? "",
+    ].filter(Boolean),
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cookie",
+      "Origin",
+      "Accept",
+      "X-Requested-With",
+    ],
+    exposedHeaders: ["Set-Cookie"],
+  })
+);
+
+app.options("*", cors());
 app.use(express.json());
 
 // Routes
