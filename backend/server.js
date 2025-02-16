@@ -14,18 +14,7 @@ app.use(
       "https://quick-polling-app-psf2.vercel.app/",
       "http://localhost:5173",
       process?.env?.CLIENT_URL ?? "",
-    ].filter(Boolean),
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cookie",
-      "Origin",
-      "Accept",
-      "X-Requested-With",
     ],
-    exposedHeaders: ["Set-Cookie"],
   })
 );
 
